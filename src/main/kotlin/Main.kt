@@ -1,7 +1,18 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+fun main() {
+    val objTicTack = TicTack()
+    objTicTack.takeName()
+    objTicTack.startGame()
+}
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+class  TicTack{
+     lateinit var name:String
+     lateinit var array:Array<Int>
+    fun takeName(){
+        println("Plese Write the name :  ")
+        name = readln()
+        println("Player name is $name")
+    }
+    fun startGame(){
+        println("Let Start the game $name")
+    }
 }
