@@ -22,13 +22,35 @@ class Game {
             player = Player(name = name, symbol = 'X')
             println("It's your move, $name")
             printBoard()
+            status = Status.Running
         } catch (e: Throwable) {
             println("Invalid Name.")
         }
     }
 
     private fun getCall(){
+        val input = readlnOrNull()
+        try {
+            require(value = input!=null)
+            val cellNumber = input.toInt()
+            require(value = cellNumber in 0..8)
+            setCell(cellNumber)
+        }catch (e:Throwable){
+            println("Invalid Number.")
+        }
+    }
 
+    private fun setCell(cellNumber: Int) {
+        val cell = board[cellNumber]
+        if(cell is Cell.Empty){
+            board.set(
+                index = cellNumber,
+                element = Cell.Filled(player = player)
+            )
+            printBoard()
+        }else{
+            println("Cell Taken, Choose Another.")
+        }
     }
 
     private fun printBoard(){
