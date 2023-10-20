@@ -51,8 +51,8 @@ class Game {
                 index = cellNumber,
                 element = Cell.Filled(player = player)
             )
-            generateComputerMove()
             checkTheBoard()
+            generateComputerMove()
             printBoard()
         } else {
             println("Cell Taken, Choose Another.")
